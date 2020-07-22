@@ -1,0 +1,10 @@
+{
+  "move.modulesPath": "modules",
+  "move.account": "0xae1cbd0fb803fed77b58611fa7d52c42",
+  "move.blockchain": "starcoin",
+  "move.stdlibPath": "/Users/annali007/projects/starcoin/vm/stdlib/modules",
+  "starcoin.maxGasAmount": 1000000,
+  "starcoin.nodeRpcUrl": "ws://127.0.0.1:9870",
+  "move.trace.server": "verbose",
+  "starcoin.nodePath": "/Users/annali007/projects/starcoin/target/debug/starcoin",
+}
