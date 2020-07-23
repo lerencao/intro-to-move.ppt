@@ -11,7 +11,6 @@ _paginate: false
 
 # Move 合约懒人指南
 
-
 ---
 
 <!--
@@ -280,6 +279,8 @@ script {
 - User signs contract with a _Module_ by accepting resources of the module.
 
 ---
+
+#### Native constructures
 
 `move_to<T>(signer: &signer, resource: T)`
 
