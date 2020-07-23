@@ -20,8 +20,8 @@ _class: lead invert
 ## Outlines
 
 - Key **Concepts** of Move
-- Learn by **Examples**
-- **Development Tool**
+- Learn by *Examples*
+- Development Tools
 - Q & A
 
 
@@ -30,19 +30,15 @@ _class: lead invert
 _class: lead invert
  -->
 
-## Key Concepts of Move
+## Key Concepts
 
 - **module** and **script**.
 - **owenedship oriented**.
 - **first class resource**.
+- **generic**.
 - **account** model.
-- sign **contracts** with **module**.
+- **resource** is the **bridge** of contracting with **module**.
 
-
----
-
-
-## Learn by Examples
 
 
 ---
@@ -245,6 +241,24 @@ script {
 
 ---
 
+### Generic
+
+```
+address 0x2 {
+  module GenericCoin {
+    resource struct Coin<CoinType> {
+      value: u64
+    }
+    public fun new<CoinType>(value: u64): Coin<CoinType> {
+      Coin { value }
+    }
+    public fun value<CoinType>(coin: &Coin<CoinType>): u64 { coin.value }
+  }
+}
+```
+
+---
+
 ### Account Model
 
 - _Code_ and _Data_ is stored under some account identified by `address`
@@ -273,7 +287,7 @@ script {
 
 ---
 
-### _Sign Contracts with Code_
+### **resource** is the **bridge** of contracting with **module**
 
 - Move module can only modify __existed resources__ of a user.
 - User signs contract with a _Module_ by accepting resources of the module.
@@ -282,13 +296,29 @@ script {
 
 #### Native constructures
 
-`move_to<T>(signer: &signer, resource: T)`
+```
+move_to<T>(signer: &signer, resource: T);
 
-`move_from<T>(addr: address): T`
-`borrow_global<T>(addr: address): &T`
-`borrow_global_mut<T>(addr: address): &mut T`
+
+move_from<T>(addr: address): T
+borrow_global<T>(addr: address): &T
+borrow_global_mut<T>(addr: address): &mut T;
+
+```
 
 ---
+
+
+
+
+## Learn by Examples
+
+- *Generic Token Standard*
+
+- *A Example Token*
+
+---
+
 
 ## Development Tool
 
