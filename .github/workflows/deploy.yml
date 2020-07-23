@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ source ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build & Deploy to GitHub Pages
+      env:
+        MARP_ARGS: "README.md -o index.html"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        PUBLISH_TO_BRANCH: master
+        BASE_URL: https://lerencao.github.io/intro-to-move.slide/
+      uses: ralexander-phi/marp-action@master
